@@ -5,8 +5,23 @@
   <h1 class="post-title">
     <a href="{{ .Permalink }}">{{ .Title }}</a>
   </h1>
-  <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}" class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-  {{ .Summary }}
+  <span class="post-meta">
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ .Date.Format "2006-01-02" }}</time>
+    &nbsp;字数：<strong>{{ .WordCount }}</strong>
+    {{ if .Params.tags }}
+      &nbsp;分类：
+      {{- range .Params.categories -}}
+          <a href="/categories/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    {{ end }}
+    {{ if .Params.tags }}
+    &nbsp;标签：
+      {{- range .Params.tags -}}
+          <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    {{ end }}
+    </span>
+    {{ with .Params.description }} {{ . }} {{ else }} {{ .Summary }} {{ end }}
   {{ if .Truncated }}
   <div class="read-more-link">
     <a href="{{ .RelPermalink }}">Read More…</a>

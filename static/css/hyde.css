@@ -99,6 +99,17 @@ a.sidebar-nav-item:focus {
   font-weight: bold;
 }
 
+/* Sidebar footer */
+.sidebar .footer {
+  font-size: 0.75rem;
+}
+
+
+.sidebar .footer a {
+  color: rgba(255,255,255,.5);
+  font-size: 0.5rem;
+}
+
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the

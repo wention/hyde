@@ -9,13 +9,21 @@
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="{{ .Site.BaseURL }}">Home</a> </li>
+        <li><a href="{{ .Site.BaseURL }}">首页</a> </li>
         {{ range .Site.Menus.main -}}
           <li><a href="{{.URL}}"> {{ .Name }} </a></li>
         {{- end }}
       </ul>
     </nav>
 
-    <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</p>
+    <div class="footer">
+      <span style="display: block">{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</span>
+      {{ if .Site.Params.ICPNO -}}
+      <a class="icp-no" href="https://beian.miit.gov.cn/">{{ .Site.Params.ICPNO }}</a>
+      {{- end }}
+      <!--<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg"/>
+      </a>-->
+    </div>
   </div>
 </aside>
